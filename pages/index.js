@@ -93,8 +93,8 @@ const Game = () => {
   }, [winnerCols]);
 
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-8 bg-gray-900">
-      <div className="mb-8 flex flex-col items-center justify-center">
+    <div className="flex h-full flex-col items-center justify-center gap-10 bg-gray-900">
+      <div className="flex flex-col items-center justify-center">
         {isWinner && isGameOver && !isDraw ? (
           <h2 className="text-5xl text-white">Winner: {winner}</h2>
         ) : (
@@ -105,7 +105,7 @@ const Game = () => {
         )}
         {isDraw && !isWinner && <h2 className="text-5xl text-white">Draw</h2>}
       </div>
-      <div className="board container mx-auto grid w-full max-w-3xl grid-cols-3 grid-rows-3 gap-4 rounded-3xl bg-gray-800 p-6 shadow-lg">
+      <div className="board container mx-auto grid w-full max-w-2xl grid-cols-3 grid-rows-3 gap-4 rounded-3xl bg-gray-800 p-6 shadow-lg">
         {board.map((cell, index) => (
           <Cell
             key={index}
@@ -117,12 +117,12 @@ const Game = () => {
           />
         ))}
       </div>
-      <div className="container flex h-16 w-full max-w-3xl items-center justify-between">
+      <div className="container flex h-20 w-full max-w-3xl items-center justify-center">
         {isLoser && <h1>Loser</h1>}
 
         {isGameOver && (
           <button
-            className="leading-0 flex h-full select-none items-center rounded-full bg-pink-600 px-8 font-bold uppercase tracking-wider text-gray-900"
+            className="leading-0 flex h-full select-none items-center rounded-full bg-pink-600 px-16 border-2 border-pink-600 font-bold uppercase tracking-wider text-gray-900 transition duration-200 hover:bg-transparent hover:text-pink-400"
             onClick={handleResetButton}
           >
             Reset game

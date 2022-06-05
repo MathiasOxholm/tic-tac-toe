@@ -12,13 +12,13 @@ const Cell = ({ cell, index, winnerCols, handleClick, isGameOver }) => {
   }, [index, winnerCols]);
 
   const winnerStyles = "bg-green-400 border-green-500";
-  const normalStyles = "bg-gray-900 ";
+  const normalStyles = "bg-gray-900 border-gray-900";
   const normalHover = "cursor-pointer hover:border-gray-700";
-  const OStyles = "border-pink-700 bg-pink-600";
-  const XStyles = "border-sky-500 bg-sky-400";
+  const OStyles = "border-pink-800 bg-pink-600 hover:border-pink-800";
+  const XStyles = "border-sky-500 bg-sky-400 hover:border-sky-500";
 
   const baseStyles =
-    "cell flex aspect-square items-center justify-center rounded-3xl border-4 border-gray-900 transition-all duration-300";
+    "cell flex aspect-square items-center justify-center rounded-3xl border-4  transition-all duration-300";
 
   return (
     <div
@@ -30,6 +30,7 @@ const Cell = ({ cell, index, winnerCols, handleClick, isGameOver }) => {
         cell === "X" && !isWinner && XStyles,
         cell === "O" && !isWinner && OStyles,
         isWinner && winnerStyles,
+        isGameOver && !isWinner && "opacity-30",
       ].join(" ")}
       onClick={() => handleClick(index)}
     >
@@ -43,12 +44,12 @@ const Cell = ({ cell, index, winnerCols, handleClick, isGameOver }) => {
       >
         {cell === "X" && (
           <div className="relative">
-            <span className="absolute flex h-2 w-24 origin-center -translate-x-2/4 rotate-45 bg-white"></span>
-            <span className="absolute flex h-2 w-24 origin-center -translate-x-2/4 -rotate-45 bg-white"></span>
+            <span className="absolute flex h-5 w-28 origin-center -translate-y-2/4 -translate-x-2/4 rotate-45 bg-white"></span>
+            <span className="absolute flex h-5 w-28 origin-center -translate-y-2/4 -translate-x-2/4 -rotate-45 bg-white"></span>
           </div>
         )}
         {cell === "O" && (
-          <div className="aspect-square h-24 rounded-full border-8 border-white"></div>
+          <div className="aspect-square h-28 rounded-full border-20 border-white"></div>
         )}
       </div>
     </div>
