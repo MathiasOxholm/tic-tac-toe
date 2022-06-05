@@ -18,7 +18,7 @@ const Cell = ({ cell, index, winnerCols, handleClick, isGameOver }) => {
   const XStyles = "border-sky-500 bg-sky-400 hover:border-sky-500";
 
   const baseStyles =
-    "cell flex aspect-square items-center justify-center rounded-3xl border-4  transition-all duration-300";
+    "cell flex aspect-square items-center justify-center rounded-xl md:rounded-3xl border-4 transition-all duration-300";
 
   return (
     <div
@@ -44,12 +44,12 @@ const Cell = ({ cell, index, winnerCols, handleClick, isGameOver }) => {
       >
         {cell === "X" && (
           <div className="relative">
-            <span className="absolute flex h-5 w-28 origin-center -translate-y-2/4 -translate-x-2/4 rotate-45 bg-white"></span>
-            <span className="absolute flex h-5 w-28 origin-center -translate-y-2/4 -translate-x-2/4 -rotate-45 bg-white"></span>
+            <span className="absolute flex h-3 w-14 origin-center -translate-y-2/4 -translate-x-2/4 rotate-45 bg-white md:h-5 md:w-28"></span>
+            <span className="absolute flex h-3 w-14 origin-center -translate-y-2/4 -translate-x-2/4 -rotate-45 bg-white md:h-5 md:w-28"></span>
           </div>
         )}
         {cell === "O" && (
-          <div className="aspect-square h-28 rounded-full border-20 border-white"></div>
+          <div className="aspect-square h-14 rounded-full border-12 border-white md:h-28 md:border-20"></div>
         )}
       </div>
     </div>

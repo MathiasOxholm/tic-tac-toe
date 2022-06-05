@@ -93,19 +93,21 @@ const Game = () => {
   }, [winnerCols]);
 
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-10 bg-gray-900">
+    <div className="flex h-full flex-col items-center justify-center gap-10 bg-gray-900 px-6 md:px-0">
       <div className="flex flex-col items-center justify-center">
         {isWinner && isGameOver && !isDraw ? (
-          <h2 className="text-5xl text-white">Winner: {winner}</h2>
+          <h2 className="text-3xl text-white md:text-5xl">Winner: {winner}</h2>
         ) : (
-          <h2 className="text-5xl text-white">
+          <h2 className="text-3xl text-white md:text-5xl">
             Player {isXNext ? "X" : "O"}
             {"'"}s turn
           </h2>
         )}
-        {isDraw && !isWinner && <h2 className="text-5xl text-white">Draw</h2>}
+        {isDraw && !isWinner && (
+          <h2 className="text-3xl text-white md:text-5xl">Draw</h2>
+        )}
       </div>
-      <div className="board container mx-auto grid w-full max-w-2xl grid-cols-3 grid-rows-3 gap-4 rounded-3xl bg-gray-800 p-6 shadow-lg">
+      <div className="board container mx-auto grid w-full max-w-sm grid-cols-3 grid-rows-3 gap-3 rounded-2xl bg-gray-800 p-3 shadow-lg md:max-w-2xl md:gap-4 md:rounded-3xl md:p-6">
         {board.map((cell, index) => (
           <Cell
             key={index}
@@ -117,12 +119,12 @@ const Game = () => {
           />
         ))}
       </div>
-      <div className="container flex h-20 w-full max-w-3xl items-center justify-center">
+      <div className="container flex h-16 w-full max-w-3xl items-center justify-center md:h-20">
         {isLoser && <h1>Loser</h1>}
 
         {isGameOver && (
           <button
-            className="leading-0 flex h-full select-none items-center rounded-full bg-pink-600 px-16 border-2 border-pink-600 font-bold uppercase tracking-wider text-gray-900 transition duration-200 hover:bg-transparent hover:text-pink-400"
+            className="leading-0 flex h-full select-none items-center rounded-full border-2 border-pink-600 bg-pink-600 px-16 font-bold uppercase tracking-wider text-gray-900 transition duration-200 hover:bg-transparent hover:text-pink-400"
             onClick={handleResetButton}
           >
             Reset game
